@@ -57,7 +57,7 @@ export const Input = styled.input`
   width: 390px;
   height: 38px;
   box-shadow: 3px 3px 10px #4a90e230;
-  border: none;
+  border: ${(props) => (props.error ? "4px solid #ffde59" : "none")};
   padding-left: 10px;
 `;
 export const Button = styled.button`
@@ -82,6 +82,16 @@ export const Button = styled.button`
   &:active {
     opacity: 0.6;
   }
+`;
+export const ErrorMessageP = styled.p`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 20px;
+  color: #ffde59;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  text-align: center;
 `;
 export const SignIN = styled.p`
   font-weight: normal;

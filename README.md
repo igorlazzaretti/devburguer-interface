@@ -15,7 +15,7 @@ Este projeto, juntamente com a aplicação Backend, tem foco no mercado e, assim
 - Ferramenta para estilização através do React: Styled Components.
 - Utilização do React Hook useContext.
 - Utilização de JWT (JSON Web Tokens) para as chamadas de API.
-- Figma: <a src="https://www.figma.com/file/bjFYpO0VU0Y8l2bWALFCvt/Burger-shop?type=design&node-id=0-1&mode=design"> aqui</a>. 
+- Figma: <a href="https://www.figma.com/file/bjFYpO0VU0Y8l2bWALFCvt/Burger-shop?type=design&node-id=0-1&mode=design"> aqui</a>. 
 
 
 

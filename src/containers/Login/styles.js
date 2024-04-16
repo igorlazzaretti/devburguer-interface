@@ -37,6 +37,10 @@ export const ContainerItens = styled.div`
     align-self: center;
     margin-top: 75px;
   }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const Label = styled.p`
   font-style: normal;

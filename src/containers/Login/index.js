@@ -1,7 +1,34 @@
-import React from 'react'
+import React from "react";
 
-function Login(){
+import LoginImg from "../../assets/login-2ham-img.svg";
+import LogoImg from "../../assets/login-logo-devburguer.png";
+import {
+  Container,
+  LoginLeftImage,
+  ContainerItens,
+  Label,
+  Input,
+  Button,
+  SignIN,
+} from "./styles";
 
-    return(<div> <h1>LOGINNN </h1></div>)
+function Login() {
+  return (
+    <Container>
+      <LoginLeftImage src={LoginImg} alt="loginLeftImage2Ham"/>
+      <ContainerItens>
+        <img src={LogoImg} alt="MainLogo"/>
+        <h1>Login</h1>
+        <Label>Email</Label>
+        <Input placeholder="Digite seu Email aqui" />
+        <Label>Senha</Label>
+        <Input placeholder="Digite sua Senha. Mínimo 6 caracteres" />
+        <Button>Entrar</Button>
+        <SignIN>
+          Não possui cadastro? <a>Cadastre-se Aqui</a>
+        </SignIN>
+      </ContainerItens>
+    </Container>
+  );
 }
-export default Login
+export default Login;

@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup"
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
+import api from '../../../src/services/api'
 import LoginImg from "../../assets/login-2ham-img.svg";
 import LogoImg from "../../assets/login-logo-devburguer.png";
 import {
@@ -18,8 +19,21 @@ import {
 
 function Login() {
   const schema = Yup.object({
-    email: Yup.string().email('Você, provavelmente, não digitou um email válido. Seu hamburguer está esperando!').required('Email necessário para logar e fazer seu pedido na melhor Hamburgueria Dev do MUNDO!'),
-    password: Yup.string().min(6, 'Digite pelo menos 6 dígitos. Peça pelo menos 6 Hamburgueres!( essa última parte é brincadeira )').required('Você está quase lá. Digite sua senha e peça logo uma Coquinha Gelada!'),
+    email: Yup.string()
+      .email(
+        "Você, provavelmente, não digitou um email válido. Seu hamburguer está esperando!"
+      )
+      .required(
+        "Email necessário para logar e fazer seu pedido na melhor Hamburgueria Dev do MUNDO!"
+      ),
+    password: Yup.string()
+      .min(
+        6,
+        "Digite pelo menos 6 dígitos. Peça pelo menos 6 Hamburgueres!( essa última parte é brincadeira )"
+      )
+      .required(
+        "Você está quase lá. Digite sua senha e peça logo uma Coquinha Gelada!"
+      ),
   }).required();
 
   const {
@@ -28,8 +42,12 @@ function Login() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  })
-  const onSubmit = (data) => console.log(data)
+  });
+  const onSubmit = async clientData => {
+    const response = await api.post('sessions', {
+    email: clientData.email,
+    password: clientData.password,  }
+  )};
 
   return (
     <Container>

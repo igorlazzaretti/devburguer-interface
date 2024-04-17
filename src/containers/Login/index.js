@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
-import api from '../../../src/services/api'
+
+import api from '../../services/api'
 import LoginImg from "../../assets/login-2ham-img.svg";
 import LogoImg from "../../assets/login-logo-devburguer.png";
 import {
@@ -18,6 +19,7 @@ import {
 } from "./styles";
 
 function Login() {
+  
   const schema = Yup.object({
     email: Yup.string()
       .email(
@@ -34,7 +36,7 @@ function Login() {
       .required(
         "Você está quase lá. Digite sua senha e peça logo uma Coquinha Gelada!"
       ),
-  }).required();
+  })
 
   const {
     register,
@@ -43,11 +45,16 @@ function Login() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = async clientData => {
-    const response = await api.post('sessions', {
-    email: clientData.email,
-    password: clientData.password,  }
-  )};
+
+   const onSubmit = async clientData => {
+     const response = await api.post('sessions', {
+     email: clientData.email,
+     password: clientData.password,  }
+   )};
+
+
+
+
 
   return (
     <Container>
@@ -82,3 +89,13 @@ function Login() {
   );
 }
 export default Login;
+
+
+
+
+
+
+
+
+
+

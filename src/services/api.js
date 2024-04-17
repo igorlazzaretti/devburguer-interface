@@ -18,6 +18,5 @@ const api = axios.create({
   baseURL: "http://localhost:3001",
 });
 
-api.defaults.headers.common['Authorization'] = "87d386aaa6307cdf5106e1c16e418a13";
 
 export default api;

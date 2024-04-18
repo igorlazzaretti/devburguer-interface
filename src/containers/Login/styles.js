@@ -60,29 +60,7 @@ export const Input = styled.input`
   border: ${(props) => (props.error ? "4px solid #ffde59" : "none")};
   padding-left: 10px;
 `;
-export const Button = styled.button`
-  background-color: #7843e6;
-  border-radius: 12px;
-  width: 182px;
-  height: 36px;
-  border: none;
-  cursor: pointer;
 
-  font-weight: 500;
-  font-size: 1.2rem;
-  line-height: 19px;
-  text-align: center;
-  color: #ffffff;
-  margin-top: 65px;
-  margin-bottom: 20px;
-  &:hover {
-    background-color: #ffde59;
-    opacity: 0.98;
-  }
-  &:active {
-    opacity: 0.6;
-  }
-`;
 export const ErrorMessageP = styled.p`
   font-style: normal;
   font-weight: 400;

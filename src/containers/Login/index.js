@@ -1,12 +1,12 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as Yup from 'yup'
 
-
+import Button from '../../componets/Button'
 import api from '../../services/api'
-import LoginImg from "../../assets/login-2ham-img.svg";
-import LogoImg from "../../assets/login-logo-devburguer.png";
+import LoginImg from '../../assets/login-2ham-img.svg'
+import LogoImg from '../../assets/login-logo-devburguer.png'
 import {
   Container,
   LoginLeftImage,
@@ -14,27 +14,25 @@ import {
   Label,
   Input,
   ErrorMessageP,
-  Button,
   SignIN,
-} from "./styles";
+} from './styles'
 
 function Login() {
-  
   const schema = Yup.object({
     email: Yup.string()
       .email(
-        "Você, provavelmente, não digitou um email válido. Seu hamburguer está esperando!"
+        'Você, provavelmente, não digitou um email válido. Seu hamburguer está esperando!'
       )
       .required(
-        "Email necessário para logar e fazer seu pedido na melhor Hamburgueria Dev do MUNDO!"
+        'Email necessário para logar e fazer seu pedido na melhor Hamburgueria Dev do MUNDO!'
       ),
     password: Yup.string()
       .min(
         6,
-        "Digite pelo menos 6 dígitos. Peça pelo menos 6 Hamburgueres!( essa última parte é brincadeira )"
+        'Digite pelo menos 6 dígitos. Peça pelo menos 6 Hamburgueres!( essa última parte é brincadeira )'
       )
       .required(
-        "Você está quase lá. Digite sua senha e peça logo uma Coquinha Gelada!"
+        'Você está quase lá. Digite sua senha e peça logo uma Coquinha Gelada!'
       ),
   })
 
@@ -44,17 +42,14 @@ function Login() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  });
+  })
 
-   const onSubmit = async clientData => {
-     const response = await api.post('sessions', {
-     email: clientData.email,
-     password: clientData.password,  }
-   )};
-
-
-
-
+  const onSubmit = async (clientData) => {
+    const response = await api.post('sessions', {
+      email: clientData.email,
+      password: clientData.password,
+    })
+  }
 
   return (
     <Container>
@@ -66,36 +61,29 @@ function Login() {
           <Label>Email</Label>
           <Input
             type="email"
-            {...register("email")}
+            {...register('email')}
             placeholder="Digite seu Email aqui"
             error={errors.email?.message}
           />
           <ErrorMessageP>{errors.email?.message}</ErrorMessageP>
           <Label>Senha</Label>
-          <Input
+          <Input 
             type="password"
-            {...register("password")}
+            {...register('password')}
             placeholder="Digite sua Senha. Mínimo 6 caracteres"
             error={errors.password?.message}
           />
           <ErrorMessageP>{errors.password?.message}</ErrorMessageP>
-          <Button type="submit">Entrar</Button>
+
+          <Button type="submit" style={{marginTop:20}}>
+            Entrar  </Button>
+
         </form>
-        <SignIN>
+        <SignIN  >
           Não possui cadastro? <a>Cadastre-se Aqui</a>
         </SignIN>
       </ContainerItens>
     </Container>
-  );
+  )
 }
-export default Login;
-
-
-
-
-
-
-
-
-
-
+export default Login

@@ -1,6 +1,10 @@
-import { createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
+
+// Toastify: CSS : Notificações
+import 'react-toastify/dist/ReactToastify.css'
 
 export default createGlobalStyle`
+
 
     * {
         margin: 0;

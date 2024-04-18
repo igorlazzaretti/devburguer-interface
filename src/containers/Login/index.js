@@ -2,6 +2,9 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
+// Toastify vai ficar dentro do const response
+import { toast } from 'react-toastify';
+
 
 import Button from '../../componets/Button'
 import api from '../../services/api'
@@ -45,10 +48,16 @@ function Login() {
   })
 
   const onSubmit = async (clientData) => {
-    const response = await api.post('sessions', {
-      email: clientData.email,
-      password: clientData.password,
-    })
+    const response = await toast.promise(
+      api.post('sessions', {
+        email: clientData.email,
+        password: clientData.password
+    }),
+    { pending: 'Verificando seus dados ⏳',
+      success: 'Seja bem-vindo(a) 🎉',
+      error: 'Vish! Não deu certo. Verifique email e senha 💔'
+    }
+  ) 
   }
 
   return (

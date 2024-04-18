@@ -19,7 +19,7 @@ import {
 
 function Register() {
   const schema = Yup.object({
-    name: Yup.string('Diga seu nome... e a cidade de onde esta falando(na verdade, é só o nome =)').required(),
+    name: Yup.string().required('Diga seu nome... e a cidade de onde esta falando(na verdade, é só o nome =)'),
     email: Yup.string()
       .email(
         'Você, provavelmente, não digitou um email válido. Seu hamburguer está esperando!'
@@ -34,6 +34,11 @@ function Register() {
       )
       .required(
         'Você está quase lá. Digite sua senha e peça logo uma Coquinha Gelada!'
+      ),
+      confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password')], 'Digite a mesma senha')
+      .required(
+        'Você está quase lá. Digite a mesma senha e peça logo um Drink!'
       ),
   })
 

@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import Button from '../../componets/Button'
 import api from '../../services/api'
-import LoginImg from '../../assets/login-2ham-img.svg'
+import RegisterImg from '../../assets/register-image.svg'
 import LogoImg from '../../assets/login-logo-devburguer.png'
 import {
   Container,
@@ -17,8 +17,9 @@ import {
   SignIN,
 } from './styles'
 
-function Login() {
+function Register() {
   const schema = Yup.object({
+    name: Yup.string('Diga seu nome... e a cidade de onde esta falando(na verdade, é só o nome =)').required(),
     email: Yup.string()
       .email(
         'Você, provavelmente, não digitou um email válido. Seu hamburguer está esperando!'
@@ -45,7 +46,8 @@ function Login() {
   })
 
   const onSubmit = async (clientData) => {
-    const response = await api.post('sessions', {
+    const response = await api.post('users', {
+      name: clientData.name,
       email: clientData.email,
       password: clientData.password,
     })
@@ -53,11 +55,21 @@ function Login() {
 
   return (
     <Container>
-      <LoginLeftImage src={LoginImg} alt="loginLeftImage2Ham" />
+      <LoginLeftImage src={RegisterImg} alt="registerLeftImage2Ham" />
       <ContainerItens>
         <img src={LogoImg} alt="MainLogo" />
-        <h1>Login</h1>
+        <h1>Cadastre-se</h1>
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
+
+        <Label>Nome</Label>
+          <Input
+            type="text"
+            {...register('name')}
+            placeholder="Digite seu Email aqui"
+            error={errors.name?.message}
+          />
+          <ErrorMessageP>{errors.name?.message}</ErrorMessageP>
+
           <Label>Email</Label>
           <Input
             type="email"
@@ -66,8 +78,9 @@ function Login() {
             error={errors.email?.message}
           />
           <ErrorMessageP>{errors.email?.message}</ErrorMessageP>
+
           <Label>Senha</Label>
-          <Input 
+          <Input
             type="password"
             {...register('password')}
             placeholder="Digite sua Senha. Mínimo 6 caracteres"
@@ -75,15 +88,22 @@ function Login() {
           />
           <ErrorMessageP>{errors.password?.message}</ErrorMessageP>
 
-          <Button type="submit">
-            Entrar  </Button>
+          <Label>Confirme Sua Senha</Label>
+          <Input
+            type="password"
+            {...register('confirmPassword')}
+            placeholder="Esse campo serve para você não esquecer a sua senha."
+            error={errors.confirmPassword?.message}
+          />
+          <ErrorMessageP>{errors.confirmPassword?.message}</ErrorMessageP>
 
+          <Button type="submit">Cadastrar </Button>
         </form>
-        <SignIN  >
-          Não possui cadastro? <a>Cadastre-se Aqui</a>
+        <SignIN>
+          Já possui cadastro? <a>Entre Aqui</a>
         </SignIN>
       </ContainerItens>
     </Container>
   )
 }
-export default Login
+export default Register

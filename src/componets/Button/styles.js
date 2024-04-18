@@ -13,6 +13,7 @@ export const ContainerButton = styled.button`
   line-height: 19px;
   text-align: center;
   color: #ffffff;
+  
   &:hover {
     background-color: #ffde59;
     opacity: 0.98;

@@ -28,7 +28,7 @@ export const ContainerItens = styled.div`
 
   h1 {
     font-style: normal;
-    width: 70px;
+    width: 200px;
     height: 24px;
     font-weight: 500;
     font-size: 2rem;

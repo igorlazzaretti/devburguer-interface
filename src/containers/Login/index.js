@@ -9,7 +9,7 @@ import Button from '../../componets/Button'
 import LoginImg from '../../assets/login-2ham-img.svg'
 import LogoImg from '../../assets/login-logo-devburguer.png'
 //Context
-import {useUser} from '../../hooks/UserContext'
+import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 
 import {
@@ -24,8 +24,9 @@ import {
 
 function Login() {
 
-  const users = useUser()
-  console.log(users)
+  const { putUserData } = useUser()
+
+ // console.log('CL do Login userData', userData)
 
   const schema = Yup.object({
     email: Yup.string()
@@ -54,7 +55,7 @@ function Login() {
   })
 
   const onSubmit = async (clientData) => {
-    const response = await toast.promise(
+    const { data } = await toast.promise(
       api.post('sessions', {
         email: clientData.email,
         password: clientData.password
@@ -64,6 +65,9 @@ function Login() {
       error: 'Vish! Não deu certo. Verifique email e senha 💔'
     }
   ) 
+      putUserData(data)
+     // console.log('console.log userData', userData)
+     // console.log('console.log data',data)
   }
 
   return (

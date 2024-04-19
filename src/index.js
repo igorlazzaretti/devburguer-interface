@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Login from './containers/Login'
-import Register from './containers/Register'
+
+//Importamos as Rotas
+import Routes from './routes/routes'
 
 //Toast: notificações para o Usuário
 import { ToastContainer } from 'react-toastify';
@@ -15,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <>
     <UserProvider>
-    <Login />  </UserProvider>
+    <Routes />  </UserProvider>
     <ToastContainer />
     <GlobalStyles />
   </>

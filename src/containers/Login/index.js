@@ -5,11 +5,13 @@ import * as Yup from 'yup'
 // Toastify vai ficar dentro do const response
 import { toast } from 'react-toastify';
 
-
 import Button from '../../componets/Button'
-import api from '../../services/api'
 import LoginImg from '../../assets/login-2ham-img.svg'
 import LogoImg from '../../assets/login-logo-devburguer.png'
+//Context
+import {useUser} from '../../hooks/UserContext'
+import api from '../../services/api'
+
 import {
   Container,
   LoginLeftImage,
@@ -21,6 +23,10 @@ import {
 } from './styles'
 
 function Login() {
+
+  const users = useUser()
+  console.log(users)
+
   const schema = Yup.object({
     email: Yup.string()
       .email(

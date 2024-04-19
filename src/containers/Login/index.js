@@ -1,5 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+//Rota para a tela de Cadastro
+import { Link } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 // Toastify vai ficar dentro do const response
@@ -99,7 +101,7 @@ function Login() {
 
         </form>
         <SignIN  >
-          Não possui cadastro? <a>Cadastre-se Aqui</a>
+          Não possui cadastro? <Link to="/signup" style={{color: 'white'}}>Cadastre-se Aqui</Link>
         </SignIN>
       </ContainerItens>
     </Container>

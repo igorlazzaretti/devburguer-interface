@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const Container = styled.div`
-    background-color: #efefef;
+    background-color: #ffde59;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +35,14 @@ export const CategoryIMG = styled.img`
 export const ContainerItems = styled.div`
     display: flex;
     flex-direction: column;
+    p{
+    color: #424242;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 120%; 
+    margin-bottom: 5px
+    }
 `
 
 export const Image = styled.img`
@@ -42,6 +50,7 @@ export const Image = styled.img`
     height: 250px;
     object-fit: cover;
     border-radius: 15px;
+    margin-bottom: 15px;
     
 `
 

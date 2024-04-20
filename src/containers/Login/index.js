@@ -28,6 +28,7 @@ function Login() {
 
   const { putUserData } = useUser()
 
+
  // console.log('CL do Login userData', userData)
 
   const schema = Yup.object({
@@ -57,20 +58,22 @@ function Login() {
   })
 
   const onSubmit = async (clientData) => {
-    const { data } = await toast.promise(
-      api.post('sessions', {
-        email: clientData.email,
-        password: clientData.password
-    }),
-    { pending: 'Verificando seus dados ⏳',
-      success: 'Seja bem-vindo(a) 🎉',
-      error: 'Vish! Não deu certo. Verifique email e senha 💔'
-    }
-  ) 
+    
+     const { data } = await toast.promise(
+       api.post('sessions', {
+         email: clientData.email,
+         password: clientData.password
+     }),
+     { pending: 'Verificando seus dados ⏳',
+       success: 'Seja bem-vindo(a) 🎉',
+       error: 'Vish! Não deu certo. Verifique email e senha 💔'
+     }
+   ) 
       putUserData(data)
-     // console.log('console.log userData', userData)
-     // console.log('console.log data',data)
+   // console.log('console.log userData', userData)
+   //console.log('console.log data',data)
   }
+  
 
   return (
     <Container>

@@ -12,7 +12,7 @@ function Routes() {
     <Router>
       <Switch>
         <Route component={Login} path="/login" />
-        <Route component={Register} path="/signup" />
+        <Route component={Register} path="/register" />
         <PrivateRoute exact component={Home} path="/" />
       </Switch>
     </Router>

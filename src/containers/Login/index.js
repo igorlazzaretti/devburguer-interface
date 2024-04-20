@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 //Rota para a tela de Cadastro
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 // Toastify vai ficar dentro do const response
@@ -25,7 +25,7 @@ import {
 } from './styles'
 
 function Login() {
-
+  const history = useHistory()
   const { putUserData } = useUser()
 
 
@@ -70,6 +70,10 @@ function Login() {
      }
    ) 
       putUserData(data)
+
+      setTimeout(() => {
+        history.push('/')
+      }, 1400);
    // console.log('console.log userData', userData)
    //console.log('console.log data',data)
   }

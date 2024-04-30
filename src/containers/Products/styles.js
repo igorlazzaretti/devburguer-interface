@@ -25,3 +25,6 @@ export const CategoryButton = styled.button`
     padding-bottom: 5px;
 
 `
+
+export const ProductsContainer = styled.div`
+`

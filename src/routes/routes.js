@@ -2,10 +2,8 @@ import React from 'react'
 
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 // Importando Componentes
-import Login from '../containers/Login'
-import Register from '../containers/Register'
-import Home from '../containers/Home'
-import Products from '../containers/Products'
+import {Login, Register, Home, Products } from '../containers'
+
 import PrivateRoute from './private-routes'
 
 function Routes() {

@@ -10,13 +10,13 @@ import { ToastContainer } from 'react-toastify';
 
 import GlobalStyles from './styles/globalStyles'
 
-import {UserProvider} from './hooks/UserContext'
+import AppProvider from './hooks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <>
-    <UserProvider>
-    <Routes />  </UserProvider>
+    <AppProvider>
+    <Routes />  </AppProvider>
     <ToastContainer />
     <GlobalStyles />
   </>

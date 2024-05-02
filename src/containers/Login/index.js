@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 // Toastify vai ficar dentro do const response
 import { toast } from 'react-toastify';
 
-import Button from '../../componets/Button'
+import {Button} from '../../componets'
 import LoginImg from '../../assets/login-2ham-img.svg'
 import LogoImg from '../../assets/login-logo-devburguer.png'
 //Context
@@ -24,7 +24,7 @@ import {
   SignIN,
 } from './styles'
 
-function Login() {
+export function Login() {
   const history = useHistory()
   const { putUserData } = useUser()
 
@@ -114,4 +114,3 @@ function Login() {
     </Container>
   )
 }
-export default Login

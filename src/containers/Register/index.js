@@ -8,7 +8,7 @@ import * as Yup from 'yup'
 import { toast } from 'react-toastify';
 
 
-import Button from '../../componets/Button'
+import {Button} from '../../componets'
 import api from '../../services/api'
 import RegisterImg from '../../assets/register-image.svg'
 import LogoImg from '../../assets/login-logo-devburguer.png'
@@ -22,7 +22,7 @@ import {
   SignIN,
 } from './styles'
 
-function Register() {
+export function Register() {
   const schema = Yup.object({
     name: Yup.string().required('Diga seu nome... e a cidade de onde esta falando(na verdade, é só o nome =)'),
     email: Yup.string()
@@ -122,4 +122,3 @@ function Register() {
     </Container>
   )
 }
-export default Register

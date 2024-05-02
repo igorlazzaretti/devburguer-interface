@@ -7,7 +7,7 @@ import OffersIMGtitle from '../../assets/Home/OFERTAS.png'
 
 import { Button, CategoryIMG, Container, ContainerItems, Image } from './styles'
 
-function OffersCarousel() {
+export function OffersCarousel() {
   const [offers, setOffers] = useState([])
 
   useEffect(() => {
@@ -55,4 +55,3 @@ function OffersCarousel() {
   )
 }
 
-export default OffersCarousel

@@ -2,22 +2,31 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import Button from '../Button'
-import{Container, Image, ProductName, ProductPrice} from './styles'
+import { useCart } from '../../hooks/CartContext'
 
-function CardProducts( {product}) {
-    return(
-        <Container>
-            <Image src={product.url} alt="Imagem do Produto"/>
-            <ProductName>{product.name}</ProductName>
-            <ProductPrice>{product.price}</ProductPrice>
-            <Button>Adicionar</Button>
-        </Container>
-    )
+import { Button } from '../Button'
+import { Container, Image, ProductName, ProductPrice } from './styles'
+
+export function CardProducts({ product }) {
+  const { putProductInCart } = useCart()
+  return (
+    <Container>
+      <Image src={product.url} alt="Imagem do Produto" />
+      <div>
+        <ProductName>{product.name}</ProductName>
+        <ProductPrice>{product.formatedPrice}</ProductPrice>
+        <Button
+          onClick={() => {
+            putProductInCart(product)
+          }}
+        >
+          Adicionar
+        </Button>
+      </div>
+    </Container>
+  )
 }
 
-export default CardProducts
-
 CardProducts.propTypes = {
-    product: PropTypes.object
-  }
+  product: PropTypes.object,
+}

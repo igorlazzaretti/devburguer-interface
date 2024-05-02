@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import ProductsIMG from '../../assets/Products/home-main-img-2dir.png'
-import {CardProducts} from '../../componets'
+import {CardProduct} from '../../componets'
 import formatCurrency from '../../utils/formatCurrency'
 import {
   Container,
@@ -78,7 +78,7 @@ export function Products() {
       <ProductsContainer>
           { filteredProducts && filteredProducts.map(product => (
 
-            <CardProducts key={product.id} product={product}/>
+            <CardProduct key={product.id} product={product}/>
 
           ))}
 

@@ -16,8 +16,6 @@ function AppProvider({ children }) {
   AppProvider.propTypes = {
     children: PropTypes.node
   }
-  AppProvider.defaultProps = {
-    children: null
-  }
+
   
   export default AppProvider

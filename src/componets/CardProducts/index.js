@@ -1,24 +1,25 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react'
 
 import PropTypes from 'prop-types'
 
 import { useCart } from '../../hooks/CartContext'
-
 import { Button } from '../Button'
 import { Container, Image, ProductName, ProductPrice } from './styles'
 
-export function CardProducts({ product }) {
+export function CardProduct({ product }) {
   const { putProductInCart } = useCart()
+
   return (
     <Container>
-      <Image src={product.url} alt="Imagem do Produto" />
+      <Image src={product.url} alt="imagem do produto" />
       <div>
         <ProductName>{product.name}</ProductName>
         <ProductPrice>{product.formatedPrice}</ProductPrice>
         <Button
-          onClick={() => {
+          onClick={() => 
             putProductInCart(product)
-          }}
+          }
         >
           Adicionar
         </Button>
@@ -27,6 +28,6 @@ export function CardProducts({ product }) {
   )
 }
 
-CardProducts.propTypes = {
-  product: PropTypes.object,
+CardProduct.propTypes = {
+  product: PropTypes.object
 }

@@ -9,23 +9,19 @@ export const CartProvider =  ( {children} ) => {
     const [cartProducts, setCartProducts] = useState({})
 
     const putProductInCart = async product => {
-      console.log(product)
-      
+    console.log(product)      
     }
     useEffect(() => {
-        async function loadUserData() {
-          const clientCartData = await JSON.parse(
-            localStorage.getItem('devburguer:cartInfo')
-          )
-    
-          if (clientCartData) {
-            setCartProducts(JSON.parse(clientCartData))
-            //console.log('ConsoleLog do hook useEffect', JSON.parse(clientInfo))
-          }
+      const loadUserData = async () => {
+        const clientCartData = await localStorage.getItem('devburguer:cartInfo')
+  
+        if (clientCartData) {
+          setCartProducts(JSON.parse(clientCartData))
         }
-    
-        loadUserData()
-      }, [])
+      }
+  
+      loadUserData()
+    }, [])
 
 
     return (

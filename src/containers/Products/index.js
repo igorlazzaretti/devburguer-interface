@@ -82,10 +82,8 @@ export function Products() {
 
           ))}
 
-
       </ProductsContainer>
-    
-    
+  
     </Container>
   )
 }
